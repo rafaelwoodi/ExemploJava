@@ -43,7 +43,6 @@ import com.classes.User;
 	    throws ServletException, IOException {
 	    	
 	    	
-	        int Id_user = Integer.parseInt(request.getParameter("Id_user"));
 	        String login = request.getParameter("login");
 	        String senha = request.getParameter("senha");
 	        String nome_completo = request.getParameter("nome_completo");
@@ -51,7 +50,6 @@ import com.classes.User;
 	        
 	        
 	        User user = new User();
-	        user.setId_user(Id_user);
 	        user.setLogin(login);
 	        user.setSenha(senha);
 	        user.setNome_completo(nome_completo);

@@ -20,18 +20,17 @@ public class UserDao  {
     public void adiciona(User user) {
         String sql = "insert into usuarios " +
                 "(id_user,login,senha,nome_completo,idade)" +
-                " values (?,?,?,?,?)";
+                " values (seq_user.nextval,?,?,?,?)";
     
         try {
             // prepared statement para inserção
             PreparedStatement stmt = connection.prepareStatement(sql);
     
             // seta os valores
-            stmt.setInt(1,user.getId_user());
-            stmt.setString(2,user.getLogin());
-            stmt.setString(3,user.getSenha());
-            stmt.setString(4,user.getNome_completo());
-            stmt.setLong(5,user.getIdade());
+            stmt.setString(1,user.getLogin());
+            stmt.setString(2,user.getSenha());
+            stmt.setString(3,user.getNome_completo());
+            stmt.setLong(4,user.getIdade());
             
             // executa
             stmt.execute();
@@ -91,6 +90,37 @@ public class UserDao  {
             rs.close();
             stmt.close();
             return users;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void altera(User user) {
+        String sql = "update usuarios set login=?, senha=?,"+
+                "nome_completo=?, idade=? where id_user=?";
+    
+        try {
+            PreparedStatement stmt = connection
+                    .prepareStatement(sql);
+            stmt.setString(1,user.getLogin());
+            stmt.setString(2,user.getSenha());
+            stmt.setString(3,user.getNome_completo());
+            stmt.setLong(4,user.getIdade());
+            stmt.setInt(5,user.getId_user());
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void apaga(User user) {
+        String sql = "delete from usuarios where id_user=?";
+    
+        try {
+            PreparedStatement stmt = connection
+                    .prepareStatement(sql);
+            stmt.setInt(1,user.getId_user());
+            stmt.execute();
+            stmt.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

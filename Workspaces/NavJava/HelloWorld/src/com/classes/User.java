@@ -45,6 +45,15 @@ public class User {
 	public void setRetorno(String retorno) {
 		this.retorno = retorno;
 	}
-	
+
+    public static int Maioridade(int Idade){
+	   int Resultado = Idade;
+	   return Resultado;
+    }
+    
+    public static String NomeCompleto(String Nome){
+ 	   String Resultado = Nome;
+ 	   return Resultado;
+     }
 	
 }

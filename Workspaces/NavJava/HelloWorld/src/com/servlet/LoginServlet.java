@@ -42,7 +42,8 @@ public class LoginServlet extends HttpServlet {
 	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// por default chamarei a pagina index e passarei o parametro erro=1
 		
-		String pagina = "index.jsp?erro=1";
+		/*String pagina = "index.jsp?erro=1";*/
+		String pagina = "index.jsp";
 		
 		// Validando se o usuário é igual a admin e senha = banana
 		// Nunca se coloca usuário e senha na classe java! (hardcode)

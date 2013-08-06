@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=iso-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
@@ -8,10 +8,10 @@
 %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<title>Cadastro de Users - Marca Séries</title>
+<title>Listagem de Users - Marca Séries</title>
 <link rel="stylesheet" type="text/css" href="estilo/cadastro_users.css">
 <link rel="stylesheet" type="text/css" href="estilo/default.css">
 <!--[if IE 6]>
@@ -39,28 +39,25 @@
 			<div class="article borders">
 				<div class="title">
 				 <h2>User</h2>
-					<form id="formCadastro" class="rounded" method="post" action="CadastroServlet">
+					<form id="formCadastro" class="rounded" method="post" action="ApagaUsersServlet">
 					<div class="field">
-					    <label for="email">Nome:</label>
-					    <input type="text" class="input" name="nome_completo" id="nome_completo" />
-					    <p class="hint">Digite o nome.</p>
-					</div>
-					<div class="field">
-					    <label for="message">Login:</label>
-					    <input type="text" class="input" name="login" id="login" />
-					    <p class="hint">Digite o login.</p>
+						<input type="hidden" class="input" name="id_user" id="id_user" value="<%= Integer.parseInt(request.getParameter("id"))%>" readonly="readonly" />				
+					    <label for="email">Login:</label>
+					    <input type="text" class="input" name="login" id="login" value="<%= request.getParameter("login")%>" readonly="readonly" />
 					</div>
 					<div class="field">
 					    <label for="message">Senha:</label>
-					    <input type="text" class="input" name="senha" id="senha" />
-					    <p class="hint">Digite a senha.</p>
+					    <input type="text" class="input" name="senha" id="senha" value="<%= request.getParameter("senha")%>" readonly="readonly" />
+					</div>
+					<div class="field">
+					    <label for="message">Nome:</label>
+					    <input type="text" class="input" name="nome_completo" id="nome_completo" value="<%= request.getParameter("nome")%>" readonly="readonly" />
 					</div>
 					<div class="field">
 					    <label for="message">Idade:</label>
-					    <input type="text" class="input" name="idade" id="idade" />
-					    <p class="hint">Digite a idade.</p>
+					    <input type="text" class="input" name="idade" id="idade" value="<%= Integer.parseInt(request.getParameter("idade"))%>" readonly="readonly" />
 					</div>
-					<input type="submit" name="Submit"  class="buttonSubmit" value="Cadastrar" />
+					<input type="submit" name="Submit"  class="buttonSubmit" value="Apagar" />
 					</form>
 				</div>
 			</div>

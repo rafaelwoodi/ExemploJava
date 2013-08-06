@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
@@ -8,7 +8,7 @@
 %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <title>Alteração de Users - Marca Séries</title>
@@ -41,23 +41,23 @@
 				 <h2>User</h2>
 					<form id="formCadastro" class="rounded" method="post" action="AlteraUsersServlet">
 					<div class="field">
-					    <label for="email">Nome:</label>
-					    <input type="text" class="input" name="nome_completo" id="nome_completo" />
-					</div>
-					<div class="field">
-					    <label for="message">Login:</label>
-					    <input type="text" class="input" name="login" id="login" />
+						<input type="hidden" class="input" name="id_user" id="id_user" value="<%= Integer.parseInt(request.getParameter("id"))%>" />				
+					    <label for="email">Login:</label>
+					    <input type="text" class="input" name="login" id="login" value="<%= request.getParameter("login")%>" />
 					</div>
 					<div class="field">
 					    <label for="message">Senha:</label>
-					    <input type="text" class="input" name="senha" id="senha" />
+					    <input type="text" class="input" name="senha" id="senha" value="<%= request.getParameter("senha")%>" />
+					</div>
+					<div class="field">
+					    <label for="message">Nome:</label>
+					    <input type="text" class="input" name="nome_completo" id="nome_completo" value="<%= request.getParameter("nome")%>" />
 					</div>
 					<div class="field">
 					    <label for="message">Idade:</label>
-					    <input type="text" class="input" name="idade" id="idade" />
+					    <input type="text" class="input" name="idade" id="idade" value="<%= Integer.parseInt(request.getParameter("idade"))%>" />
 					</div>
 					<input type="submit" name="Submit"  class="buttonSubmit" value="Alterar" />
-					<input type="hidden" class="input" name="id_user" id="id_user" value="" />
 					</form>
 				</div>
 			</div>

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
     pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <%
@@ -8,7 +8,7 @@
 %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <title>Users - Marca Séries</title>
@@ -23,11 +23,7 @@
 </style>
  <script type="text/javascript" language="javascript" src="data_table/media/js/jquery.js"></script>
  <script type="text/javascript" language="javascript" src="data_table/media/js/nightly.js"></script>
- <script>
- $(document).ready(function(){
-	$('#example').dataTable();
-});
- </script>
+ <script type="text/javascript" language="javascript" src="javascript/functions.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -55,6 +51,8 @@
 		            <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
 		            <thead>
 		             <tr>
+		             <th>&nbsp;</th>
+		             <th>&nbsp;</th>
 		             <th>Login</th>
 		             <th>Nome Completo</th>
 		             <th>Idade</th>
@@ -68,6 +66,10 @@
 		     		for (User user : users) {
 		     			%>	
 		     			<tr class="gradeC">
+		     			<td align="center"><a href="altera_user.jsp?id=<%out.print(user.getId_user());%>&nome=<%out.print(user.getNome_completo());%>&login=<%out.print(user.getLogin());%>&senha=<%out.print(user.getSenha());%>&idade=<%out.print(user.getIdade());%>">
+		     			<img src="imagens/alterar.png" title="Alterar" /></a></td>
+		     			<td align="center"><a href="lista_user.jsp?id=<%out.print(user.getId_user());%>&nome=<%out.print(user.getNome_completo());%>&login=<%out.print(user.getLogin());%>&senha=<%out.print(user.getSenha());%>&idade=<%out.print(user.getIdade());%>">
+		     			<img src="imagens/listar.gif" title="Listar" /></a></td>
 		     			<td align="center"><%out.print(user.getLogin());%></td>
 		     			<td align="center"><%out.print(user.getNome_completo());%></td>
 		     			<td align="center"><%out.print(user.getIdade());%></td>

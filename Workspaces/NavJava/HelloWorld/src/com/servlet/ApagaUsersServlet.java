@@ -2,19 +2,17 @@ package com.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.banco.UserDao;
 import com.classes.User;
 
-
-public class AlteraUsersServlet extends HttpServlet {
+public class ApagaUsersServlet extends HttpServlet {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -45,22 +43,13 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	
 	
     int Id_user = Integer.parseInt(request.getParameter("id_user"));
-    String login = request.getParameter("login");
-    String senha = request.getParameter("senha");
-    String nome_completo = request.getParameter("nome_completo");
-    int idade = Integer.parseInt(request.getParameter("idade"));
-    
     
     User user = new User();
     user.setId_user(Id_user);
-    user.setLogin(login);
-    user.setSenha(senha);
-    user.setNome_completo(nome_completo);
-    user.setIdade(idade);
     
     UserDao dao = new UserDao();
     
-    dao.altera(user);
+    dao.apaga(user);
 
     response.sendRedirect("users.jsp");
     
